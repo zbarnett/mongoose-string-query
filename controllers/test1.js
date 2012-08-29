@@ -6,7 +6,10 @@ exports.index = function(req, res){
 
   mongooseApiQuery(req, {
     custom_params: function(key, val, searchParams) {
-      return false;
+      if (key === "zamboni") {
+        searchParams["monster_identification_no"] = 1;
+        return true;
+      }
     },
     model: Monster,
     per_page: 100

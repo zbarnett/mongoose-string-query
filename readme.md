@@ -1,7 +1,7 @@
 ## To run tests:
 
-'''shell
+```shell
 node load_fixtures.js
 node app.js
 mocha
-'''
+```

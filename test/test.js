@@ -95,7 +95,23 @@ describe('mongoose-api-query', function(){
       });
     });
 
+    it('returns correct results for {in}', function(done){
+      browser.visit("http://localhost:3000/test1?monster_identification_no=1,301", function (){
+        hasMonster("Big Purple People Eater");
+        hasMonster("Frankenstein");
+        hasMonsterCount(2);
+        done();
+      });
+    });
 
+    it('returns correct results for {all}', function(done){
+      browser.visit("http://localhost:3000/test1?monster_identification_no={all}1,301", function (){
+        hasMonsterCount(0);
+        done();
+      });
+    });
   });
+
+
 
 });

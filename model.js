@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
+var mongooseApiQuery = require('./lib/mongoose-api-query');
 
-var schema = new mongoose.Schema({
+var monsterSchema = new mongoose.Schema({
   name: String,
   monster_identification_no: Number,
   eats_humans: Boolean,
@@ -12,4 +13,6 @@ var schema = new mongoose.Schema({
 
 });
 
-module.exports = DB.model('Monster', schema);
+monsterSchema.plugin(mongooseApiQuery);
+
+module.exports = DB.model('Monster', monsterSchema);

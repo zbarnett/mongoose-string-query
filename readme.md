@@ -17,15 +17,15 @@ Match on a nested property:
 
     /monsters/v1?foods.name=kale
 
-comma-separated values assumes `{any}`:
+Comma-separated values assumes `{any}`:
 
     /monsters/v1?foods.name=kale,beets
 
-match only if all are true:
+Match only if all are true:
 
     /monsters/v1?foods.name={all}kale,beets
 
-numeric operators:
+Numeric operators:
 
     /monsters/v1?monster_id={gte}30&age={lt}50
 

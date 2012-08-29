@@ -112,6 +112,75 @@ describe('mongoose-api-query', function(){
     });
   });
 
+  describe('SchemaBoolean', function(){
+    it('parses "true" as true', function(done){
+      browser.visit("http://localhost:3000/test1?eats_humans=true", function (){
+        hasMonster("Big Purple People Eater");
+        hasMonster("Bessie the Lochness Monster");
+        hasMonster("Clay Johnson");
+        hasMonsterCount(3);
+        done();
+      });
+    });
+
+    it('parses "t" as true', function(done){
+      browser.visit("http://localhost:3000/test1?eats_humans=t", function (){
+        hasMonster("Big Purple People Eater");
+        hasMonster("Bessie the Lochness Monster");
+        hasMonster("Clay Johnson");
+        hasMonsterCount(3);
+        done();
+      });
+    });
+
+    it('parses "yes" as true', function(done){
+      browser.visit("http://localhost:3000/test1?eats_humans=yes", function (){
+        hasMonster("Big Purple People Eater");
+        hasMonster("Bessie the Lochness Monster");
+        hasMonster("Clay Johnson");
+        hasMonsterCount(3);
+        done();
+      });
+    });
+
+    it('parses "y" as true', function(done){
+      browser.visit("http://localhost:3000/test1?eats_humans=y", function (){
+        hasMonster("Big Purple People Eater");
+        hasMonster("Bessie the Lochness Monster");
+        hasMonster("Clay Johnson");
+        hasMonsterCount(3);
+        done();
+      });
+    });
+
+    it('parses "1" as true', function(done){
+      browser.visit("http://localhost:3000/test1?eats_humans=1", function (){
+        hasMonster("Big Purple People Eater");
+        hasMonster("Bessie the Lochness Monster");
+        hasMonster("Clay Johnson");
+        hasMonsterCount(3);
+        done();
+      });
+    });
+
+    it('parses anything else as false', function(done){
+      browser.visit("http://localhost:3000/test1?eats_humans=kljahsdflakjsf", function (){
+        hasMonster("Frankenstein");
+        hasMonster("Biggie Smalls");
+        hasMonster("Biggie Smalls the 2nd");
+        hasMonsterCount(3);
+        done();
+      });
+    });
+
+    it('ignores a blank param', function(done){
+      browser.visit("http://localhost:3000/test1?eats_humans=", function (){
+        hasMonsterCount(6);
+        done();
+      });
+    });
+  });
+
 
 
 });

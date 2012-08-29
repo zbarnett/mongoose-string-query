@@ -4,7 +4,7 @@ var mongooseApiQuery = require('./lib/mongoose-api-query');
 
 module.exports = function(req, res){
 
-  mongooseApiQuery(req, {
+  mongooseApiQuery(req.query, {
     custom_params: function(key, val, searchParams) {
       if (key === "zamboni") {
         searchParams["monster_identification_no"] = 1;

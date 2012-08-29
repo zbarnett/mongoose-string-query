@@ -15,15 +15,26 @@ describe('mongoose-api-query', function(){
 
   it('without any query params, loads all monsters', function(done){
     browser.visit("http://localhost:3000/test1", function () {
-      hasMonster("Big Purple People Eater")
-      hasMonster("Bessie the Lochness Monster")
-      hasMonster("Clay Johnson")
-      hasMonster("Frankenstein")
-      hasMonster("Biggie Smalls")
-      hasMonster("Biggie Smalls the 2nd")
+      hasMonsterCount(6);
       done();
     });
   });
+
+  it('can have custom query params', function(done){
+    browser.visit("http://localhost:3000/test1?zamboni=uh-huh", function () {
+      hasMonster("Big Purple People Eater")
+      hasMonsterCount(1);
+      done();
+    });
+  });
+
+  it('ignores unmatched params', function(done){
+    browser.visit("http://localhost:3000/test1?coffee=black", function () {
+      hasMonsterCount(6);
+      done();
+    });
+  });
+
 
   describe('SchemaString', function(){
     it('filters without case-sensitivity', function(done){
@@ -181,6 +192,58 @@ describe('mongoose-api-query', function(){
     });
   });
 
+  describe('SubSchema', function(){
 
+    describe('SchemaString', function(){
+      it('does a basic filter', function(done){
+        browser.visit("http://localhost:3000/test1?foods.name=kale", function (){
+          hasMonster("Big Purple People Eater");
+          hasMonster("Frankenstein");
+          hasMonsterCount(2);
+          done();
+        });
+      });
+
+      it('calculates {all} correctly', function(done){
+        browser.visit("http://localhost:3000/test1?foods.name={all}kale,beets", function (){
+          hasMonster("Big Purple People Eater");
+          hasMonsterCount(1);
+          done();
+        });
+      });
+
+      it('calculates {any} correctly', function(done){
+        browser.visit("http://localhost:3000/test1?foods.name=kale,beets", function (){
+          hasMonster("Big Purple People Eater");
+          hasMonster("Frankenstein");
+          hasMonsterCount(2);
+          done();
+        });
+      });
+    });
+
+    describe('SchemaNumber', function(){
+      it('does a basic filter', function(done){
+        browser.visit("http://localhost:3000/test1?foods.calories={gt}350", function (){
+          hasMonster("Biggie Smalls the 2nd");
+          hasMonsterCount(1);
+          done();
+        });
+      });
+    });
+
+    describe('SchemaBoolean', function(){
+      it('does a basic filter', function(done){
+        browser.visit("http://localhost:3000/test1?foods.vegetarian=t", function (){
+          hasMonster("Big Purple People Eater");
+          hasMonster("Frankenstein");
+          hasMonsterCount(2);
+          done();
+        });
+      });
+    });
+
+
+  });
 
 });

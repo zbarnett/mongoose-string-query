@@ -1,6 +1,6 @@
 var fs = require('fs');
 var Monster = require('../models/monster');
-var mongooseApiQuery = require('../mongoose-api-query');
+var mongooseApiQuery = require('../lib/mongoose-api-query');
 
 exports.index = function(req, res){
 

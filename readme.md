@@ -31,7 +31,7 @@ Numeric operators:
 
 geo near, with (optional) radius in miles:
 
-    /monsters/v1?{near}latlon=38.8977,-77.0366&radius=10
+    /monsters/v1?latlon={near}38.8977,-77.0366&radius=10
 
 if `page` param is passed in, that translates to `skip` with default limit of 100.
 

@@ -1,8 +1,8 @@
 var fs = require('fs');
-var Monster = require('../models/monster');
-var mongooseApiQuery = require('../lib/mongoose-api-query');
+var Monster = require('./model');
+var mongooseApiQuery = require('./lib/mongoose-api-query');
 
-exports.index = function(req, res){
+module.exports = function(req, res){
 
   mongooseApiQuery(req, {
     custom_params: function(key, val, searchParams) {

@@ -5,7 +5,7 @@ If you use Mongoose to help serve results for API calls, you might be used to ha
 
 mongoose-api-query handles some of that busywork for you. Pass in a vanilla object (e.g. req.query) and it'll return a `Mongoose.Query` that you can further chain onto or call `.exec`. Query conditions will be cast to their appropriate types according to your Mongoose schema; e.g. eats_humans=true to a Boolean.
 
-Supports nested properties like `friends.name=` and operators including `{gt}` `{gte}` `{lt}` `{lte}` `{all}` and `near`
+Supports nested properties like `friends.name=` and operators including `{gt}` `{gte}` `{lt}` `{lte}` `{all}` and `{near}`
 
 ## Examples
 
@@ -29,9 +29,9 @@ Numeric operators:
 
     /monsters/v1?monster_id={gte}30&age={lt}50
 
-geo near:
+geo near, with (optional) radius in miles:
 
-    /monsters/v1?{near}latlon=38.8977,-77.0366
+    /monsters/v1?{near}latlon=38.8977,-77.0366&radius=10
 
 if `page` param is passed in, that translates to `skip` with default limit of 100.
 

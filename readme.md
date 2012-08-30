@@ -33,10 +33,6 @@ geo near, with (optional) radius in miles:
 
     /monsters/v1?latlon={near}38.8977,-77.0366&radius=10
 
-if `page` param is passed in, that translates to `skip` with default limit of 100.
-
-    /monsters/v1?page=2
-
 ## Usage
 
 Apply the plugin to any schema in the usual Mongoose fashion:
@@ -50,6 +46,7 @@ Then call it like you would using `Model.find`. This returns a Mongoose.Query:
 Or pass a callback in and it will run `.exec` for you:
 
     Monster.apiQuery(req.query, function(err, monsters){...
+
 
 ## To run tests
 

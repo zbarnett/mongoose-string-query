@@ -42,6 +42,13 @@ describe('mongoose-api-query', function(){
     });
   });
 
+ it('handles paging of results', function(done){
+    browser.visit("http://localhost:3000/test1?page=2&perPage=4", function () {
+      hasMonsterCount(2);
+      done();
+    });
+  });
+
   it('returns correct result for {near} within 3 mile radius', function(done){
     browser.visit("http://localhost:3000/test1?loc={near}38.8977,-77.0366&radius=3", function () {
       hasMonsterCount(4);

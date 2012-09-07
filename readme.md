@@ -31,7 +31,11 @@ Or pass a callback in and it will run `.exec` for you:
 
 Match on a nested property:
 
-    /monsters?foods.name=kale
+    /monsters?foods.name=kale     // fuzzy, matches "Kale", "kaLE", "WOOTkaleYEAH"
+    
+Use exact matching:
+
+    /monsters?foods.name={exact}KALE      // only matches "KALE"      
 
 Comma-separated values assumes `{any}`:
 

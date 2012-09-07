@@ -136,6 +136,28 @@ describe('mongoose-api-query', function(){
       });
     });
 
+    it('doesnt match fuzzy results when using {exact}', function(done){
+      browser.visit("http://localhost:3000/test1?name={exact}big%20purple", function (){
+        hasMonsterCount(0);
+        done();
+      });
+    });
+
+    it('has case sensitivity when using {exact}', function(done){
+      browser.visit("http://localhost:3000/test1?name={exact}big%20pUrple%20People%20Eater", function (){
+        hasMonsterCount(0);
+        done();
+      });
+    });
+
+    it('returns correct result with {exact}', function(done){
+      browser.visit("http://localhost:3000/test1?name={exact}Big%20Purple%20People%20Eater", function (){
+        hasMonster("Big Purple People Eater");
+        hasMonsterCount(1);
+        done();
+      });
+    });
+
     it('does partial matching by default', function(done){
       browser.visit("http://localhost:3000/test1?name=biggie%20smalls", function (){
         hasMonster("Biggie Smalls");

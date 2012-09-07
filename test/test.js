@@ -11,6 +11,15 @@ var hasMonsterCount = function (num) {
   expect(json.length).to.equal(num);
 };
 
+var hasMonstersInOrder = function (monster1, monster2) {
+  var json = browser.response[2];
+  var index1 = json.indexOf(monster1);
+  var index2 = json.indexOf(monster2);
+  expect(index1).to.not.equal(-1);
+  expect(index2).to.not.equal(-1);
+  expect(index1).to.be.lessThan(index2);
+};
+
 describe('mongoose-api-query', function(){
 
   it('without any query params, loads all monsters', function(done){
@@ -26,6 +35,35 @@ describe('mongoose-api-query', function(){
       done();
     });
   });
+
+  it('can sort results', function(done){
+    browser.visit("http://localhost:3000/test1?sort_by=monster_identification_no,-1", function () {
+      hasMonstersInOrder("Bessie the Lochness Monster", "Big Purple People Eater");
+      done();
+    });
+  });
+
+  it('can sort results on nested params', function(done){
+    browser.visit("http://localhost:3000/test1?sort_by=foods.name,1", function () {
+      hasMonstersInOrder("Big Purple People Eater", "Biggie Smalls the 2nd");
+      done();
+    });
+  });
+
+  it('default sort order is asc', function(done){
+    browser.visit("http://localhost:3000/test1?sort_by=foods.name", function () {
+      hasMonstersInOrder("Big Purple People Eater", "Biggie Smalls the 2nd");
+      done();
+    });
+  });
+
+  it('"desc" is valid sort order', function(done){
+    browser.visit("http://localhost:3000/test1?sort_by=monster_identification_no,desc", function () {
+      hasMonstersInOrder("Bessie the Lochness Monster", "Big Purple People Eater");
+      done();
+    });
+  });
+
 
   it('works with {near} and no stated radius', function(done){
     browser.visit("http://localhost:3000/test1?loc={near}38.8977,-77.0366", function () {

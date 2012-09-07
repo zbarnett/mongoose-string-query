@@ -61,12 +61,16 @@ geo near, with (optional) radius in miles:
 
     /monsters?latlon={near}38.8977,-77.0366
     /monsters?latlon={near}38.8977,-77.0366,10       // 10 mile radius only
-
+    
 ##### Pagination
 
 	/monsters?page=2
 	/monsters?page=4&per_page=25 		// per_page defaults to 10
 
+##### Sorting results
+
+	/monsters?sort_by=name
+	/monsters?sort_by=name,desc        // default order is asc
 
 ## To run tests
 

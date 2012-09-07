@@ -53,6 +53,10 @@ Numeric operators:
 
     /monsters?monster_id={gte}30&age={lt}50
 
+Combine operators:
+
+    /monsters?monster_id={gte}30{lt}50
+
 geo near, with (optional) radius in miles:
 
     /monsters/v1?latlon={near}38.8977,-77.0366

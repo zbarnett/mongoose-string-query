@@ -53,6 +53,14 @@ describe('mongoose-api-query', function(){
     });
   });
 
+  it('can filter by multiple conditions on the same field', function(done){
+    browser.visit("http://localhost:3000/test1?monster_identification_no={gt}200{lt}100439", function (){
+      hasMonster("Frankenstein");
+      hasMonsterCount(1);
+      done();
+    });
+  });
+
   it('excludes results that match {ne} param for Numbers', function(done){
     browser.visit("http://localhost:3000/test1?monster_identification_no={ne}200", function () {
       hasMonsterCount(4);

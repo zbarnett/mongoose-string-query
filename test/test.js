@@ -75,9 +75,16 @@ describe('mongoose-api-query', function(){
     });
   });
 
- it('handles paging of results', function(done){
-    browser.visit("http://localhost:3000/test1?page=2&perPage=4", function () {
+  it('handles paging of results', function(done){
+    browser.visit("http://localhost:3000/test1?page=2&per_page=4", function () {
       hasMonsterCount(2);
+      done();
+    });
+  });
+
+  it('defaults to 10 results per page', function(done){
+    browser.visit("http://localhost:3000/test1?page=1", function () {
+      hasMonsterCount(6);
       done();
     });
   });

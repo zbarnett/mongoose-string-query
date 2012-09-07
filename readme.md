@@ -52,6 +52,10 @@ Show everything except any of these matches:
 Numeric operators:
 
     /monsters?monster_id={gte}30&age={lt}50
+    
+Arithmetic:
+
+	/monsters?age={mod}10,2       // age/10 has remainder 2
 
 Combine operators:
 

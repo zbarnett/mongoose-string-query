@@ -162,6 +162,15 @@ describe('mongoose-api-query', function(){
       });
     });
 
+    it('returns correct results for {mod}', function(done){
+      browser.visit("http://localhost:3000/test1?monster_identification_no={mod}150,1", function (){
+        hasMonster("Frankenstein");
+        hasMonster("Big Purple People Eater");
+        hasMonsterCount(2);
+        done();
+      });
+    });
+
     it('returns correct results for {gt}', function(done){
       browser.visit("http://localhost:3000/test1?monster_identification_no={gt}100439", function (){
         hasMonster("Biggie Smalls the 2nd");

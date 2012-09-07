@@ -59,8 +59,13 @@ Combine operators:
 
 geo near, with (optional) radius in miles:
 
-    /monsters/v1?latlon={near}38.8977,-77.0366
-    /monsters/v1?latlon={near}38.8977,-77.0366,10       // 10 mile radius only
+    /monsters?latlon={near}38.8977,-77.0366
+    /monsters?latlon={near}38.8977,-77.0366,10       // 10 mile radius only
+
+##### Pagination
+
+	/monsters?page=2
+	/monsters?page=4&per_page=25 		// per_page defaults to 10
 
 
 ## To run tests

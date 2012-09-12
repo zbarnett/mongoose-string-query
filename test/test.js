@@ -135,6 +135,14 @@ describe('mongoose-api-query', function(){
     });
   });
 
+  it('can handle schemaless uppercase property', function(done){
+    browser.visit("http://localhost:3000/test1?data.MODE=kill", function () {
+      hasMonster("Big Purple People Eater");
+      hasMonsterCount(1);
+      done();
+    });
+  });
+
   it('can handle schemaless property number', function(done){
     browser.visit("http://localhost:3000/test1?data.hands=14", function () {
       hasMonster("Clay Johnson");

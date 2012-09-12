@@ -8,7 +8,8 @@ module.exports = [
           {name: "Kale", vegetarian: true, calories: 20}],
   loc: [38.8977,-77.0366],
   data: {
-    mood: "sad"
+    mood: "sad",
+    MODE: "kill"
   }
 },
 

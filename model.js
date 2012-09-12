@@ -10,7 +10,8 @@ var monsterSchema = new mongoose.Schema({
     vegetarian: Boolean,
     calories: Number
   })],
-  loc: Array
+  loc: Array,
+  data: {}
 });
 
 monsterSchema.index({'loc':'2d'});

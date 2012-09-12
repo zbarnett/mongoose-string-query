@@ -6,7 +6,10 @@ module.exports = [
   eats_humans: true,
   foods: [{name: "Beets", vegetarian: true, calories: 70},
           {name: "Kale", vegetarian: true, calories: 20}],
-  loc: [38.8977,-77.0366]
+  loc: [38.8977,-77.0366],
+  data: {
+    mood: "sad"
+  }
 },
 
 {
@@ -14,7 +17,10 @@ module.exports = [
   monster_identification_no: 200,
   eats_humans: true,
   foods: [],
-  loc: [38.9,-77.1]
+  loc: [38.9,-77.1],
+  data: {
+    mood: "ecstatic"
+  }
 },
 
 {
@@ -22,6 +28,9 @@ module.exports = [
   monster_identification_no: 200,
   eats_humans: true,
   foods: [],
+  data: {
+    hands: 14
+  },
   loc: [38.9,-77.2]
 },
 

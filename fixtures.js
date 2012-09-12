@@ -29,7 +29,7 @@ module.exports = [
   eats_humans: true,
   foods: [],
   data: {
-    hands: 14
+    hands: "14"
   },
   loc: [38.9,-77.2]
 },

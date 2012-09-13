@@ -13,19 +13,19 @@ When searching strings, by default it does a partial, case-insensitive match. (W
 
 Apply the plugin to any schema in the usual Mongoose fashion:
 
-```javascript
+```
 monsterSchema.plugin(mongooseApiQuery);
 ```
 
 Then call it like you would using `Model.find`. This returns a Mongoose.Query:
 
-```javascript
+```
 Monster.apiQuery(req.query).exec(...
 ```
 
 Or pass a callback in and it will run `.exec` for you:
 
-```javascript
+```
 Monster.apiQuery(req.query, function(err, monsters){...
 ```
 
@@ -33,65 +33,65 @@ Monster.apiQuery(req.query, function(err, monsters){...
 
 `t`, `y`, and `1` are all aliases for `true`:
 
-```javascript
+```
 /monsters?eats_humans=y&scary=1
 ```
 
 Match on a nested property:
 
-```javascript
+```
 /monsters?foods.name=kale
 ```
 
 Use exact matching:
 
-```javascript
+```
 /monsters?foods.name={exact}KALE
 ```
 
 Matches either `kale` or `beets`:
 
-```javascript
+```
 /monsters?foods.name=kale,beets
 ```
 
 Matches only where `kale` and `beets` are both present:
 
-```javascript
+```
 /monsters?foods.name={all}kale,beets
 ```
 
 Numeric operators:
 
-```javascript
+```
 /monsters?monster_id={gte}30&age={lt}50
 ```
 
 Combine operators:
 
-```javascript
+```
 /monsters?monster_id={gte}30{lt}50
 ```
 
 geo near, with (optional) radius in miles:
 
-```javascript
+```
 /monsters?latlon={near}38.8977,-77.0366
 /monsters?latlon={near}38.8977,-77.0366,10
 ```
 
 ##### Pagination
 
-```javascript
+```
 /monsters?page=2
 /monsters?page=4&per_page=25 		// per_page defaults to 10
 ```
 
 ##### Sorting results
 
-```javascript
+```
 /monsters?sort_by=name
-/monsters?sort_by=name,desc        // default order is asc
+/monsters?sort_by=name,desc
 ```
 
 ##### Schemaless search

@@ -142,6 +142,14 @@ describe('mongoose-api-query', function(){
     });
   });
 
+  it('handles schemaless property with case-insensitivity', function(done){
+    browser.visit("http://localhost:3000/test1?data.mood=SAD", function () {
+      hasMonster("Big Purple People Eater");
+      hasMonsterCount(1);
+      done();
+    });
+  });
+
   it('can handle schemaless uppercase property', function(done){
     browser.visit("http://localhost:3000/test1?data.MODE=kill", function () {
       hasMonster("Big Purple People Eater");

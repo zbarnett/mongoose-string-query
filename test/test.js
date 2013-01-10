@@ -29,6 +29,13 @@ describe('mongoose-api-query', function(){
     });
   });
 
+  it('does case-insensitive searching', function(done){
+    browser.visit("http://localhost:3000/test1?name=people", function() {
+      hasMonster("Big Purple People Eater");
+      done();
+    });
+  });
+
   it('ignores unmatched params', function(done){
     browser.visit("http://localhost:3000/test1?coffee=black", function () {
       hasMonsterCount(6);

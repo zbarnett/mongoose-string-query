@@ -437,6 +437,15 @@ describe('mongoose-api-query', function(){
       });
     });
 
+    describe('SchemaObjectId', function(){
+      it('does a basic filter', function(done){
+        browser.visit("http://localhost:3000/test1?monster_object_id=530088897c979cdb49475d9c", function (){
+          hasMonster("Clay Johnson");
+          hasMonsterCount(1);
+          done();
+        });
+      });
+    });
 
  });
 

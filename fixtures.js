@@ -63,6 +63,11 @@ module.exports = [
   eats_humans: false,
   foods: [{name: "Legs", vegetarian: false, calories: 400}],
   loc: [38.86,-77.05]
+},
+
+{
+  name: "AZ124584545",
+  monster_object_id: "530088897c979cdb49475d9g"
 }
 
 ];

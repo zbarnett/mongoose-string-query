@@ -1,9 +1,13 @@
 ## Overview
+
+This is a fork and updated package to work with current versions of express and mongoose from the 4 year old deprecated and unresponsive mongoose-api-query package
+
+
 If you use Mongoose to help serve results for API calls, you might be used to handling calls like:
 
     /monsters?color=purple&eats_humans=true
 
-mongoose-api-query handles some of that busywork for you. Pass in a vanilla object (e.g. req.query) and query conditions will be cast to their appropriate types according to your Mongoose schema. For example, if you have a boolean defined in your schema, we'll convert the `eats_humans=true` to a boolean for searching.
+mongoose-query handles some of that busywork for you. Pass in a vanilla object (e.g. req.query) and query conditions will be cast to their appropriate types according to your Mongoose schema. For example, if you have a boolean defined in your schema, we'll convert the `eats_humans=true` to a boolean for searching.
 
 It also adds a ton of additional search operators, like `less than`, `greater than`, `not equal`, `near` (for geosearch), `in`, and `all`. You can find a full list below.
 
@@ -30,6 +34,8 @@ Monster.apiQuery(req.query, function(err, monsters){...
 ```
 
 ## Examples
+
+const mongooseApiQuery = require('mongoose-query')
 
 `t`, `y`, and `1` are all aliases for `true`:
 

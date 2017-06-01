@@ -1,5 +1,5 @@
 {
-  "name": "mongoose-query",
+  "name": "mongoose-string-query",
   "version": "0.1.5pre",
   "author": "Adam Hodara <hodaraadam@gmail.com>",
   "description": "Updated Fork from original, Given a Mongoose model and an array of URI params, construct a query for use in a search API.",

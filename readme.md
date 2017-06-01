@@ -1,7 +1,6 @@
 ## Overview
 
-This is a fork and updated package to work with current versions of express and mongoose from the 4 year old deprecated and unresponsive mongoose-api-query package
-
+This is a working and updated fork from the great mongoose-api-query package that is deprecated and hasn't been updated for 3 years.
 
 If you use Mongoose to help serve results for API calls, you might be used to handling calls like:
 
@@ -35,7 +34,10 @@ Monster.apiQuery(req.query, function(err, monsters){...
 
 ## Examples
 
-const mongooseApiQuery = require('mongoose-query')
+```
+const mongooseApiQuery = require('mongoose-string-query')
+
+```
 
 `t`, `y`, and `1` are all aliases for `true`:
 

@@ -130,6 +130,15 @@ This is a list of the optional search operators you can use for each SchemaType.
 - `string={not}coffee` - Not coffee
 - `string={exact}CoFeEe` - Case-sensitive exact match of "CoFeEe"
 
+#### Array
+
+- `array={all}match,batch` - Both match *and* batch must be present
+- `array={nin}match,batch` - Neither match nor batch
+- `array={in}match,batch` - Either match or batch
+- `array={not}coffee` - Not coffee
+- `array={exact}CoFeEe` - Case-sensitive exact match of "CoFeEe"
+
+
 #### Latlon
 
 - `latlon={near}37,-122,5` Near 37,-122, with a 5 mile max radius

@@ -1,6 +1,6 @@
 {
   "name": "mongoose-string-query",
-  "version": "0.2.1",
+  "version": "0.2.5",
   "author": "Adam Hodara <hodaraadam@gmail.com>",
   "description": "Updated Fork from original, Given a Mongoose model and an array of URI params, construct a query for use in a search API.",
   "repository": "surfer77/mongoose-string-query",
@@ -24,9 +24,7 @@
   },
   "dependencies": {
     "body-parser": "~1.17.1",
-    "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
-    "hbs": "~4.0.1",
     "morgan": "~1.8.1",
     "serve-favicon": "~2.4.2"
   },

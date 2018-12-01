@@ -16,16 +16,16 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "express": "4.15.3",
-    "mocha": "*",
-    "zombie": "*",
     "expect.js": "*",
-    "mongoose": "^4.10.4"
+    "express": "^4.16.4",
+    "mocha": "*",
+    "mongoose": "^4.10.4",
+    "zombie": "*"
   },
   "dependencies": {
-    "body-parser": "~1.17.1",
+    "body-parser": "^1.18.3",
     "debug": "~2.6.3",
-    "morgan": "~1.8.1",
+    "morgan": "^1.9.1",
     "serve-favicon": "~2.4.2"
   },
   "homepage": "https://github.com/surfer77/mongoose-query"
